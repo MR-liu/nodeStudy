@@ -7,7 +7,7 @@ server.on('request', function (req, res) {
     // console.log(res)
     // console.log(req)
     res.writeHead(200,'LZJ`s code', {
-        'content-type':'text/html'
+        'content-type':'text/html; charset=utf-8'
     })
 
     res.write('hello')
