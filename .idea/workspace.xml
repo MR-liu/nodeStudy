@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb94a57d-1e7f-4c51-a68e-bc0eb3d375b0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/db/collection-0-4335282124756609175.wt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/db/collection-2-4335282124756609175.wt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/db/diagnostic.data/metrics.2017-09-13T08-43-16Z-00000" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/db/index-1-4335282124756609175.wt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/db/index-3-4335282124756609175.wt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog/db/index-4-4335282124756609175.wt" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/WiredTiger.wt" afterPath="$PROJECT_DIR$/blog/db/WiredTiger.wt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/_mdb_catalog.wt" afterPath="$PROJECT_DIR$/blog/db/_mdb_catalog.wt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/diagnostic.data/metrics.interim" afterPath="$PROJECT_DIR$/blog/db/diagnostic.data/metrics.interim" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/journal/WiredTigerLog.0000000001" afterPath="$PROJECT_DIR$/blog/db/journal/WiredTigerLog.0000000001" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/sizeStorer.wt" afterPath="$PROJECT_DIR$/blog/db/sizeStorer.wt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/app.js" afterPath="$PROJECT_DIR$/blog/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/WiredTiger.turtle" afterPath="$PROJECT_DIR$/blog/db/WiredTiger.turtle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/db/mongod.lock" afterPath="$PROJECT_DIR$/blog/db/mongod.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,7 +33,21 @@
     <favorites_list name="nodeStudy" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="397">
+              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#885#930#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -69,8 +98,8 @@
         <option value="$PROJECT_DIR$/blog/routers/main.js" />
         <option value="$PROJECT_DIR$/blog/routers/admin.js" />
         <option value="$PROJECT_DIR$/blog/schemas/user.js" />
-        <option value="$PROJECT_DIR$/blog/app.js" />
         <option value="$PROJECT_DIR$/blog/.gitignore" />
+        <option value="$PROJECT_DIR$/blog/app.js" />
       </list>
     </option>
   </component>
@@ -93,7 +122,7 @@
     <handled-path value="$PROJECT_DIR$/yddist/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="935" />
+    <option name="x" value="866" />
     <option name="y" value="23" />
     <option name="width" value="985" />
     <option name="height" value="999" />
@@ -156,6 +185,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -190,8 +221,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -205,6 +234,7 @@
     <property name="jsx.switch.disabled" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="add_unversioned_files" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -259,20 +289,23 @@
       <workItem from="1504517018722" duration="1354000" />
       <workItem from="1504578747738" duration="7334000" />
       <workItem from="1505272773291" duration="1762000" />
+      <workItem from="1505292611680" duration="33000" />
+      <workItem from="1505384016673" duration="399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31299000" />
+    <option name="totallyTimeSpent" value="31731000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="935" y="23" width="985" height="999" extended-state="0" />
+    <frame x="866" y="23" width="985" height="999" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26763487" sideWeight="0.49612403" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36172566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36172566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32853982" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17040952" sideWeight="0.503876" order="2" side_tool="true" content_ui="tabs" />
@@ -305,13 +338,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/fileAPI/filefs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="2" lean-forward="false" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HTTPAPI/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -529,13 +555,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/routers/api.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/routers/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -557,29 +576,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#842#887#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/schemas/user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/routers/api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#885#930#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

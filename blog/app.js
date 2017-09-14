@@ -14,6 +14,9 @@ let swig = require('swig');
 //创建app应用 ==> NODEJS http.createServer();
 let app = express();
 
+//数据库
+let mongoose = require('mongoose');
+
 //设置静态文件托管
 //当用户访问的url以public开始，那么直接返回对应 __dirname + '/public'下的文件
 app.use('/public', express.static(__dirname + '/public'));
@@ -55,7 +58,14 @@ app.use('/', require('./routers/main'));
 
 
 //数据库连接
-mongoose.connect();
+mongoose.connect('mongodb://localhost:29019/blog',{useMongoClient: true}, function (err) {
+    if(err){
+        console.log('error')
+    }else{
+        console.log('数据库连接成功');
 
-//监听http请求
-app.listen(9000);
+        //监听http请求
+        app.listen(9000);
+    }
+});
+
