@@ -58,7 +58,14 @@ body{
 	display: inline-block;
 	width: 70%;
 	padding: 30px;
-	display: none;
+}
+
+.tips{
+	width: 90%;
+    padding: 0 30px 30px;
+    color: red;
+    font-size: 12px;
+    display: none;
 }
 .blog-user .blog-user-login-box{
 	display: inline-block;

@@ -2,8 +2,10 @@ $(function(){
 	// 切换
 	let checkoutreg = $('.blog-user-checkoutreg'),
 		checkoutlogin = $('.blog-user-checkoutlogin'),
+		userInfoBox = $('.blog-user-infos'),
 		regBox = $('.blog-user-res-box'),
-		loginBox = $('.blog-user-login-box');
+		loginBox = $('.blog-user-login-box'),
+		tips = $('.tips');
 
 	checkoutreg.on('click', function(){
 		loginBox.hide();
@@ -32,7 +34,19 @@ $(function(){
 			},
 			dataType:'json',
 			success: function(res){
-				console.log(res)
+				if (res && res.code===0) {
+					tips.show();
+					tips.html(res.message);
+					setTimeout(function(){
+						userInfoBox.find('.blog-user-infos-name').html(res.username);
+						regBox.hide();
+						loginBox.hide();
+						userInfoBox.show();
+						tips.hide();
+					},1000)
+				}else{
+					tips.show().html(res.message)
+				}
 			}
 		})
 	});
@@ -47,6 +61,42 @@ $(function(){
 
 		$.ajax({
 			url:'/api/user/register',
+			type:'POST',
+			data:{
+				username: loginUsername,
+				password: loginPassword,
+				repassword: reloginPassword
+			},
+			dataType:'json',
+			success: function(res){
+				if (res && res.code===0) {
+					tips.show();
+					tips.html(res.message);
+					setTimeout(function(){
+						userInfoBox.find('.blog-user-infos-name').html(res.username);
+						regBox.hide();
+						loginBox.hide();
+						userInfoBox.show();
+						tips.hide();
+					},1000)
+				}else{
+					tips.show().html(res.message)
+				}
+			}
+		})
+	})
+
+
+	//test================================================
+	let	testbtn = $('.testbtn');
+
+	testbtn.on('click',function(){
+		let loginUsername = 1,
+			loginPassword = 2,
+			reloginPassword = 3;
+		console.log(1);
+		$.ajax({
+			url:'/test',
 			type:'POST',
 			data:{
 				username: loginUsername,

@@ -14,16 +14,18 @@
         <a href="javascript:;">类型3</a>
     </div>
     <div class="blog-user">
+        {% if userInfo._id %}
         <div class="blog-user-infos">
             <i class="blog-user-infos-name">shdk</i>
             <a href="javascript:;" class="login-out">退出</a>
         </div>
+        {% else %}
         <div class="blog-user-login-box">
             <h3>登录：</h3>
             <form action="" method="get">
                 登陆名：<input type="text" name="fname" class="login-username" />
                 密码：<input type="text" name="lname" class="login-password" />
-                <button class="login-btn">提交</button>
+                <a href="javascript:;"  class="login-btn">提交</a>
             </form>
             <a href="javascript:;" class="blog-user-checkoutreg">切换注册</a>
         </div>
@@ -33,10 +35,12 @@
                 登陆名：<input type="text" name="fname" class="reg-name" />
                 密码：<input class="reg-password" type="text" name="lname" />
                 确认密码：<input type="text" class="reg-repassword" name="lname" />
-                <button class="reg-btn"/>提交</button>
+                <a href="javascript:;"  class="reg-btn">提交</a>
             </form>
             <a href="javascript:;" class="blog-user-checkoutlogin">切换登陆</a>
         </div>
+        {% endif %}
+        <p class="tips"></p>
     </div>
     <div class="blog-content">
         <div class="blog-box">
@@ -58,6 +62,7 @@
             </p>
         </div>
     </div>
+    <a href="javascript:;" style="display: block; width: 120px; height: 50px; background-color: red" class="testbtn"> 按钮</a>
     <script src="/public/js/main.js"></script>
 </body>
 </html>

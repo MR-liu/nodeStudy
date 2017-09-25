@@ -20,6 +20,9 @@ let mongoose = require('mongoose');
 //加载body-parser,用来加载处理post提交过来的数据
 let bodyParser = require('body-parser');
 
+//加载cookies
+let Cookies = require('cookies');
+
 //设置静态文件托管
 //当用户访问的url以public开始，那么直接返回对应 __dirname + '/public'下的文件
 app.use('/public', express.static(__dirname + '/public'));
@@ -35,6 +38,7 @@ app.set('views', './views');
 //注册所使用的模板引擎 第一个参数必须是view engine 第二个参数跟app.engine定义的名称相同
 app.set('view engine', 'html');
 
+
 //开发过程中不需要缓存
 swig.setDefaults({cache: false});
 
@@ -42,6 +46,32 @@ swig.setDefaults({cache: false});
 //使用中间件body-parser
 app.use(bodyParser.urlencoded({extended:true}));
 
+//设置cookies
+
+//对cookies的设置
+//不要缺少next
+app.use(function (req, res, next) {
+    req.cookies = new Cookies(req, res)
+
+    //解析用户登录的cookies信息
+    req.userInfo = {}
+    if(req.cookies.get('userInfo')){
+        try{
+            req.userInfo = JSON.parse(req.cookies.get('userInfo'))
+
+            next();
+            //获取当前登录用户的身份类型，是否是管理员
+            // User.findById(req.userInfo._id).then(function (userInfo) {
+            //     req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
+            //     next()
+            // })
+        }catch (e){
+
+        }
+    }else {
+        next()
+    }
+})
 
 /*
 * 根据不同功能划分不同模块
@@ -61,6 +91,14 @@ app.use('/', require('./routers/main'));
 //     //第一个参数是模板的文件，文件位置相对于views views/index.html
 //     res.render('index');
 // });
+
+
+//test================================================
+app.post('/test', function (req, res ,next) {
+    console.log('test');
+    res.json({1:1});
+});
+
 
 
 //数据库连接
