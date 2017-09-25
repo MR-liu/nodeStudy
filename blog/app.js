@@ -17,6 +17,9 @@ let app = express();
 //数据库
 let mongoose = require('mongoose');
 
+//加载body-parser,用来加载处理post提交过来的数据
+let bodyParser = require('body-parser');
+
 //设置静态文件托管
 //当用户访问的url以public开始，那么直接返回对应 __dirname + '/public'下的文件
 app.use('/public', express.static(__dirname + '/public'));
@@ -36,12 +39,15 @@ app.set('view engine', 'html');
 swig.setDefaults({cache: false});
 
 
+//使用中间件body-parser
+app.use(bodyParser.urlencoded({extended:true}));
+
 
 /*
 * 根据不同功能划分不同模块
 * */
 app.use('/admin', require('./routers/admin'));
-// app.use('/api', require('./routers/api'));
+app.use('/api', require('./routers/api'));
 app.use('/', require('./routers/main'));
 
 
@@ -58,9 +64,10 @@ app.use('/', require('./routers/main'));
 
 
 //数据库连接
+//命令：mongod --dbpath= --port=29019
 mongoose.connect('mongodb://localhost:29019/blog',{useMongoClient: true}, function (err) {
     if(err){
-        console.log('error')
+        console.log('数据库连接失败')
     }else{
         console.log('数据库连接成功');
 
