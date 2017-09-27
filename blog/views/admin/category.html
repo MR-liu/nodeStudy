@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/admin">管理首页</a></li>
+    <li>分类列表</li>
+</ol>
+<h3>分类列表</h3>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>类型名</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{user._id.toString()}}</td>
+        <td>{{user.name}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!--include 是包括子级的模板-->
+<!--<nav aria-label="...">-->
+    <!--{%include 'page.html'%}-->
+<!--</nav>-->
+{% endblock %}

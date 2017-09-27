@@ -23,6 +23,9 @@ let bodyParser = require('body-parser');
 //加载cookies
 let Cookies = require('cookies');
 
+//加载用户类型
+let User = require('./models/user');
+
 //设置静态文件托管
 //当用户访问的url以public开始，那么直接返回对应 __dirname + '/public'下的文件
 app.use('/public', express.static(__dirname + '/public'));
@@ -42,7 +45,6 @@ app.set('view engine', 'html');
 //开发过程中不需要缓存
 swig.setDefaults({cache: false});
 
-
 //使用中间件body-parser
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -59,14 +61,14 @@ app.use(function (req, res, next) {
         try{
             req.userInfo = JSON.parse(req.cookies.get('userInfo'))
 
-            next();
-            //获取当前登录用户的身份类型，是否是管理员
-            // User.findById(req.userInfo._id).then(function (userInfo) {
-            //     req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
-            //     next()
-            // })
+            // 获取当前登录用户的身份类型，是否是管理员
+            User.findById(req.userInfo._id).then(function (userInfo) {
+                req.userInfo.isAdmin = Boolean(userInfo.isAdmin)
+                next()
+            })
         }catch (e){
-
+            console.log(e);
+            next()
         }
     }else {
         next()
@@ -103,6 +105,7 @@ app.post('/test', function (req, res ,next) {
 
 //数据库连接
 //命令：mongod --dbpath= --port=29019
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:29019/blog',{useMongoClient: true}, function (err) {
     if(err){
         console.log('数据库连接失败')

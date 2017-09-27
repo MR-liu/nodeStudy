@@ -89,12 +89,19 @@ router.post('/user/register', function (req, res ,next) {
         });
         // 保存
         return user.save()
-    }).then(function (newUserInfo) {
-        console.log(newUserInfo);
+    }).then(function (userInfo) {
+
+        req.cookies.set('userInfo', JSON.stringify({
+            _id:userInfo._id,
+            username:userInfo.username
+        }))
+
+        console.log(userInfo);
         responseData.username = username;
         responseData.message = '注册成功';
         //转换成json格式并返回
         res.json(responseData);
+
         return;
     })
 
@@ -164,9 +171,15 @@ router.post('/user/login', function (req, res ,next) {
             responseData.username = username;
             responseData.message = '登陆成功';
 
+            //是否是管理员
+            // if(userInfo.isAdmin){
+            //     responseData.isAdmin = true;
+            // }
+
             responseData.userInfo = {
                 _id : userInfo._id,
-                username: userInfo.username
+                username: userInfo.username,
+                isAdmin: userInfo.isAdmin
             }
 
             req.cookies.set('userInfo', JSON.stringify({
@@ -180,4 +193,12 @@ router.post('/user/login', function (req, res ,next) {
     })
 });
 
+//退出登录
+router.post('/user/loginout', function (req, res, next) {
+    req.cookies.set('userInfo', null)
+    res.json({
+        code: 0,
+        message: '用户退出'
+    })
+})
 module.exports = router;

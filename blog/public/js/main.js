@@ -35,15 +35,7 @@ $(function(){
 			dataType:'json',
 			success: function(res){
 				if (res && res.code===0) {
-					tips.show();
-					tips.html(res.message);
-					setTimeout(function(){
-						userInfoBox.find('.blog-user-infos-name').html(res.username);
-						regBox.hide();
-						loginBox.hide();
-						userInfoBox.show();
-						tips.hide();
-					},1000)
+					window.location.reload()
 				}else{
 					tips.show().html(res.message)
 				}
@@ -70,17 +62,29 @@ $(function(){
 			dataType:'json',
 			success: function(res){
 				if (res && res.code===0) {
-					tips.show();
-					tips.html(res.message);
-					setTimeout(function(){
-						userInfoBox.find('.blog-user-infos-name').html(res.username);
-						regBox.hide();
-						loginBox.hide();
-						userInfoBox.show();
-						tips.hide();
-					},1000)
+					window.location.reload()
 				}else{
 					tips.show().html(res.message)
+				}
+			}
+		})
+	})
+
+	//loginout
+	let loginoutBtn = $('.login-out');
+
+	loginoutBtn.on('click', function(){
+		$.ajax({
+			url:'/api/user/loginout',
+			type:'POST',
+			data:{
+			},
+			dataType:'json',
+			success: function(res){
+				if (res&&res.code == 0) {
+					window.location.reload();
+				} else {
+					console.log(res);
 				}
 			}
 		})
@@ -94,7 +98,6 @@ $(function(){
 		let loginUsername = 1,
 			loginPassword = 2,
 			reloginPassword = 3;
-		console.log(1);
 		$.ajax({
 			url:'/test',
 			type:'POST',

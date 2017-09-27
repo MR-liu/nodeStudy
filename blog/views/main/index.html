@@ -16,7 +16,12 @@
     <div class="blog-user">
         {% if userInfo._id %}
         <div class="blog-user-infos">
-            <i class="blog-user-infos-name">shdk</i>
+            <i class="blog-user-infos-name">{{userInfo.username}}</i>
+            {% if userInfo.isAdmin %}
+                <p><span class="info colwarning">你好，管理员 <a href="/admin" class="enterAdmin">进入管理中心</a></span></p>
+            {% else %}
+                <p><span class="info colwarning">你好，欢迎光临我的博客</span></p>
+            {% endif %}
             <a href="javascript:;" class="login-out">退出</a>
         </div>
         {% else %}
