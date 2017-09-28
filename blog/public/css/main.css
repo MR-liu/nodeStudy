@@ -119,6 +119,22 @@ body{
 }
 
 
+.blogNav{
+	width: 1000px;
+	margin: 10px auto;
+}
+.blogNav a{
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 10px;
+	text-decoration: none;
+}
+
+.blogNav a:hover{
+	color: #2aabd2;
+}
+
 
 
 

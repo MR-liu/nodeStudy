@@ -9,7 +9,12 @@
         {{message}}
     </div>
     <div class="panel-footer">
-        <a href="{{url}}" class="prePage">上一步</a>
+        {% if url %}
+        <a href="{{url}}" class="prePage">返回</a>
+        {% endif %}
+        {% if !url %}
+        <a href="javascript:window.history.back();" class="prePage">上一步</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

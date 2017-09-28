@@ -10,16 +10,20 @@
     <tr>
         <th>ID</th>
         <th>类型名</th>
+        <th>编辑</th>
+        <th>管理</th>
     </tr>
     {% for user in user %}
     <tr>
         <td>{{user._id.toString()}}</td>
         <td>{{user.name}}</td>
+        <td><a href="/admin/category/edit?id={{user._id.toString()}}">编辑</a></td>
+        <td><a href="/admin/category/detele?id={{user._id.toString()}}">删除</a></td>
     </tr>
     {% endfor %}
 </table>
 <!--include 是包括子级的模板-->
-<!--<nav aria-label="...">-->
-    <!--{%include 'page.html'%}-->
-<!--</nav>-->
+<nav aria-label="...">
+    {%include 'page.html'%}
+</nav>
 {% endblock %}
