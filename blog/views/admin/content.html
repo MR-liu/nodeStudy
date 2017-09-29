@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block main %}
+<ol class="breadcrumb">
+    <li><a href="/admin">管理首页</a></li>
+    <li>文章列表</li>
+</ol>
+<h3>文章列表</h3>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>文章名</th>
+        <th>编辑</th>
+        <th>管理</th>
+    </tr>
+    {% for content in content %}
+    <tr>
+        <td>{{content._id.toString()}}</td>
+        <td>{{content.title}}</td>
+        <td><a href="/admin/content/edit?id={{content._id.toString()}}">编辑</a></td>
+        <td><a href="/admin/content/detele?id={{content._id.toString()}}">删除</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<!--include 是包括子级的模板-->
+<nav aria-label="...">
+    {%include 'page.html'%}
+</nav>
+{% endblock %}

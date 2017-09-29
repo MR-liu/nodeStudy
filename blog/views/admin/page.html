@@ -3,7 +3,11 @@
     <li class="previous"><a href="{{url}}?page={{page-1}}"><span aria-hidden="true">&larr;</span> 上一页</a></li>
     {% endif %}
 
-    {% if page!=pageNum %}
+    {% if page!=pageNum && pageNum != 0 %}
     <li class="next"><a href="{{url}}?page={{page+1}}">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+    {% endif %}
+
+    {% if pageNum == 0 %}
+        <p style="text-align: center">当前列表为空</p>
     {% endif %}
 </ul>

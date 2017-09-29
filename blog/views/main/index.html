@@ -9,9 +9,12 @@
 <body>
     <h1 class="blog-name">LZJ的博客</h1>
     <div class="blog-Nav">
-        <a href="javascript:;" class="active">类型1</a>
-        <a href="javascript:;">类型2</a>
-        <a href="javascript:;">类型3</a>
+        {% for category in category %}
+            <a href="/category/{{category.name}}">{{category.name}}</a>
+        {% endfor %}
+        <!--<a href="javascript:;" class="active">类型1</a>-->
+        <!--<a href="javascript:;">类型2</a>-->
+        <!--<a href="javascript:;">类型3</a>-->
     </div>
     <div class="blog-user">
         {% if userInfo._id %}
@@ -47,13 +50,6 @@
         {% endif %}
         <p class="tips"></p>
     </div>
-    <nav class="blogNav">
-        <div>
-            {% for category in category %}
-                <a href="/category/{{category.name}}">{{category.name}}</a>
-            {% endfor %}
-        </div>
-    </nav>
     <div class="blog-content">
         <div class="blog-box">
             <h5 class="blog-title">标题1</h5>
@@ -74,7 +70,7 @@
             </p>
         </div>
     </div>
-    <a href="javascript:;" style="display: block; width: 120px; height: 50px; background-color: red" class="testbtn"> 按钮</a>
+    <!--<a href="javascript:;" style="display: block; width: 120px; height: 50px; background-color: red" class="testbtn"> 按钮</a>-->
     <script src="/public/js/main.js"></script>
 </body>
 </html>

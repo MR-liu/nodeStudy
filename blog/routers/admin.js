@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let User = require('../models/user');
 let Category = require('../models/category');
+let Content = require('../models/content')
 
 router.get('/', function (req, res, next) {
     if(!req.userInfo.isAdmin){
@@ -237,5 +238,155 @@ router.get('/category/detele',function (req, res, next) {
     })
 })
 
+
+/*
+* 文章列表
+* */
+
+router.get('/content', function (req,res,next) {
+    let page = Number(req.query.page || 1),
+        limit = 2,
+        skip = (page - 1) * limit;
+
+    Content.count().then(function (count) {
+
+        //计算总页数
+        let pageNum = Math.ceil(count / limit);
+
+        Content.find().limit(limit).skip(skip).then(function (content) {
+            // console.log()
+            res.render('admin/content',{
+                userInfo:req.userInfo,
+                content:content,
+                //第二个参数就是模板使用的
+                page : page,
+                pageNum : pageNum,
+                url: 'content'
+            })
+        })
+    })
+})
+
+/*
+* 增加文章
+* */
+
+router.get('/content/add', function (req,res,next) {
+    Category.find().sort({_id: -1}).then(function (categories) {
+        res.render('admin/content_add',{
+            userInfo:req.userInfo,
+            categories:categories
+        })
+        return
+    })
+})
+/*
+* 保存文章
+* */
+router.post('/content/add', function (req,res,next) {
+    if (req.body.category == ''){
+        res.render('admin/err',{
+            userInfo:req.userInfo,
+            message:'分类不能为空'
+        })
+        return
+    }
+    if (req.body.title == ''){
+        res.render('admin/err',{
+            userInfo:req.userInfo,
+            message:'标题不能为空'
+        })
+        return
+    }
+    // 保存数据到数据库
+    new Content({
+        category:req.body.category,
+        title:req.body.title,
+        user:req.userInfo._id.toString(),
+        description:req.body.description,
+        content:req.body.content
+    }).save().then(function () {
+        res.render('admin/success', {
+            userInfo:req.userInfo,
+            message:'内容保存成功',
+            url:'/admin/content'
+        })
+    })
+
+})
+
+/*
+* 修改文章
+* */
+router.get('/content/edit',function (req, res, next) {
+    let id = req.query.id;
+
+    Category.find().sort({_id:-1}).then(function (category) {
+        // console.log(category)
+        Content.findOne({
+            _id:id
+        }).then(function (content) {
+            // console.log(content)
+            res.render('admin/content_edit', {
+                userInfo:req.userInfo,
+                content:content,
+                categories:category
+            })
+        })
+    })
+})
+
+/*
+* 保存修改
+* */
+router.post('/content/edit',function (req, res, next) {
+    let id = req.query.id;
+
+    Content.findOne({
+        _id:id
+    }).then(function (res) {
+        if (!res){
+            res.render('admin/err', {
+                message: '文章不存在',
+                userInfo: req.userInfo
+            })
+            return
+        } else {
+            Content.update({
+                _id:id
+            },{
+                category:req.body.category,
+                title:req.body.title,
+                description:req.body.description,
+                content:req.body.content
+            }).then(function (updata) {
+                res.render('admin/success', {
+                    userInfo: req.userInfo,
+                    message: '修改成功',
+                    url:'/admin/content'
+                });
+            })
+        }
+    })
+
+})
+
+/*
+* 删除文章
+*
+* */
+router.get('/content/detele',function (req, res, next) {
+    let id = req.query.id;
+
+    Content.remove({
+        _id:id
+    }).then(function (removeid) {
+        res.render('admin/success',{
+            userInfo:req.userInfo,
+            message:'删除成功',
+            url:'/admin/content'
+        })
+    })
+})
 
 module.exports = router;

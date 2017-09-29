@@ -11,7 +11,6 @@ router.get('/', function (req, res, next) {
     Category.find().sort({_id:-1}).then(function (data) {
         return data
     }).then(function (category) {
-        console.log(category)
         res.render('main/index',{
             //第二个参数就是模板使用的
             userInfo:req.userInfo,
