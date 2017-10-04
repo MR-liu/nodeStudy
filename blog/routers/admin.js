@@ -2,7 +2,7 @@ let express = require('express');
 let router = express.Router();
 let User = require('../models/user');
 let Category = require('../models/category');
-let Content = require('../models/content')
+let Content = require('../models/content');
 
 router.get('/', function (req, res, next) {
     if(!req.userInfo.isAdmin){
@@ -344,13 +344,12 @@ router.post('/content/edit',function (req, res, next) {
 
     Content.findOne({
         _id:id
-    }).then(function (res) {
-        if (!res){
+    }).then(function (content) {
+        if (!content){
             res.render('admin/err', {
                 message: '文章不存在',
                 userInfo: req.userInfo
             })
-            return
         } else {
             Content.update({
                 _id:id

@@ -51,24 +51,17 @@
         <p class="tips"></p>
     </div>
     <div class="blog-content">
-        <div class="blog-box">
-            <h5 class="blog-title">标题1</h5>
-            <p class="blog">
-                hfjkqgkjh
-            </p>
-            <p class="blog-infos">
-                <i class="blog-time">时间</i>
-            </p>
-        </div>
-        <div class="blog-box">
-            <h5 class="blog-title">标题1</h5>
-            <p class="blog">
-                hfjkqgkjh
-            </p>
-            <p class="blog-infos">
-                <i class="blog-time">时间</i>
-            </p>
-        </div>
+        {% for content in content %}
+            <div class="blog-box">
+                <h5 class="blog-title">{{content.title}}</h5>
+                <p class="blog">
+                    {{content.description}}
+                </p>
+                <p class="blog-infos">
+                    <i class="blog-time">{{content.addTime.getFullYear()}}年{{content.addTime.getMonth()+1}}月{{content.addTime.getDay()}}日    {{content.addTime.getHours()}}小时{{content.addTime.getMinutes()}}分{{content.addTime.getSeconds()}}秒</i>
+                </p>
+            </div>
+        {% endfor %}
     </div>
     <!--<a href="javascript:;" style="display: block; width: 120px; height: 50px; background-color: red" class="testbtn"> 按钮</a>-->
     <script src="/public/js/main.js"></script>
