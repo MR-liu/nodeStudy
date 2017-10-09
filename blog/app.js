@@ -97,7 +97,6 @@ app.use('/', require('./routers/main'));
 
 //test================================================
 app.post('/test', function (req, res ,next) {
-    console.log('test');
     res.json({1:1});
 });
 

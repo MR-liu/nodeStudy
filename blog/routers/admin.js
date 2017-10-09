@@ -253,8 +253,9 @@ router.get('/content', function (req,res,next) {
         //计算总页数
         let pageNum = Math.ceil(count / limit);
 
-        Content.find().limit(limit).skip(skip).then(function (content) {
-            // console.log()
+        //populate 关联数据库
+        Content.find().limit(limit).skip(skip).populate(['category','user']).then(function (content) {
+            console.log(content)
             res.render('admin/content',{
                 userInfo:req.userInfo,
                 content:content,
@@ -322,11 +323,10 @@ router.get('/content/edit',function (req, res, next) {
     let id = req.query.id;
 
     Category.find().sort({_id:-1}).then(function (category) {
-        // console.log(category)
         Content.findOne({
             _id:id
-        }).then(function (content) {
-            // console.log(content)
+        }).populate('category').then(function (content) {
+
             res.render('admin/content_edit', {
                 userInfo:req.userInfo,
                 content:content,

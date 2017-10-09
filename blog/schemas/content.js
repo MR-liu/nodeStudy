@@ -4,12 +4,15 @@ var mongoose = require('mongoose')
 
 //分类的表结构
 module.exports = new mongoose.Schema({
+    //关联数据表
     category:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Category'
     },
     //内容标题
     title: String,
+
+    //关联数据表
     // 关联字段-用户ID
     user:{
         type:mongoose.Schema.Types.ObjectId,

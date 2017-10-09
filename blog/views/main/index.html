@@ -10,7 +10,8 @@
     <h1 class="blog-name">LZJ的博客</h1>
     <div class="blog-Nav">
         {% for category in category %}
-            <a href="/category/{{category.name}}">{{category.name}}</a>
+
+            <a href="/category/grouping?grouping={{encodeURI(category.name)}}">{{category.name}}</a>
         {% endfor %}
         <!--<a href="javascript:;" class="active">类型1</a>-->
         <!--<a href="javascript:;">类型2</a>-->
@@ -58,7 +59,7 @@
                     {{content.description}}
                 </p>
                 <p class="blog-infos">
-                    <i class="blog-time">{{content.addTime.getFullYear()}}年{{content.addTime.getMonth()+1}}月{{content.addTime.getDay()}}日    {{content.addTime.getHours()}}小时{{content.addTime.getMinutes()}}分{{content.addTime.getSeconds()}}秒</i>
+                    <i class="blog-time">{{content.addTime.getFullYear()}}年{{content.addTime.getMonth()+1}}月{{content.addTime.getDate()}}日    {{content.addTime.getHours()}}小时{{content.addTime.getMinutes()}}分{{content.addTime.getSeconds()}}秒</i>
                 </p>
             </div>
         {% endfor %}

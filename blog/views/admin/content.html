@@ -8,15 +8,23 @@
 <h3>文章列表</h3>
 <table class="table table-hover">
     <tr>
-        <th>ID</th>
+        <th>ID
+        <th>分类名</th>
         <th>文章名</th>
+        <th>作者</th>
+        <th>添加时间</th>
+        <th>阅读量</th>
         <th>编辑</th>
         <th>管理</th>
     </tr>
     {% for content in content %}
     <tr>
         <td>{{content._id.toString()}}</td>
+        <td>{{content.category.name}}</td>
         <td>{{content.title}}</td>
+        <td>{{content.user.username}}</td>
+        <td>{{content.addTime|date('Y年m月d日 H:i:s', -8*60)}}</td>
+        <td>{{content.views}}</td>
         <td><a href="/admin/content/edit?id={{content._id.toString()}}">编辑</a></td>
         <td><a href="/admin/content/detele?id={{content._id.toString()}}">删除</a></td>
     </tr>

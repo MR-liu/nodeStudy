@@ -9,8 +9,7 @@ let Content = require('../models/content');
 * -1 降序
 * */
 router.get('/', function (req, res, next) {
-    Content.find().limit(3).sort({_id:-1}).then(function (content) {
-        console.log(content);
+    Content.find().limit(10).sort({_id:-1}).then(function (content) {
         return content
     }).then(function (content) {
         Category.find().sort({_id:-1}).then(function (data) {
