@@ -1,62 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="/public/css/main.css">
-    <script src="/public/js/jquery.min.js"></script>
-</head>
-<body>
-    <h1 class="blog-name">LZJ的博客</h1>
-    <div class="blog-Nav">
-        {% for category in category %}
+{% extends 'layout.html' %}
 
-            <a href="/category/grouping?grouping={{encodeURI(category.name)}}">{{category.name}}</a>
-        {% endfor %}
-        <!--<a href="javascript:;" class="active">类型1</a>-->
-        <!--<a href="javascript:;">类型2</a>-->
-        <!--<a href="javascript:;">类型3</a>-->
-    </div>
-    <div class="blog-user">
-        {% if userInfo._id %}
-        <div class="blog-user-infos">
-            <i class="blog-user-infos-name">{{userInfo.username}}</i>
-            {% if userInfo.isAdmin %}
-                <p><span class="info colwarning">你好，管理员 <a href="/admin" class="enterAdmin">进入管理中心</a></span></p>
-            {% else %}
-                <p><span class="info colwarning">你好，欢迎光临我的博客</span></p>
-            {% endif %}
-            <a href="javascript:;" class="login-out">退出</a>
-        </div>
-        {% else %}
-        <div class="blog-user-login-box">
-            <h3>登录：</h3>
-            <form action="" method="get">
-                登陆名：<input type="text" name="fname" class="login-username" />
-                密码：<input type="text" name="lname" class="login-password" />
-                <a href="javascript:;"  class="login-btn">提交</a>
-            </form>
-            <a href="javascript:;" class="blog-user-checkoutreg">切换注册</a>
-        </div>
-        <div class="blog-user-res-box">
-            <h3>注册：</h3>
-            <form action="" method="get">
-                登陆名：<input type="text" name="fname" class="reg-name" />
-                密码：<input class="reg-password" type="text" name="lname" />
-                确认密码：<input type="text" class="reg-repassword" name="lname" />
-                <a href="javascript:;"  class="reg-btn">提交</a>
-            </form>
-            <a href="javascript:;" class="blog-user-checkoutlogin">切换登陆</a>
-        </div>
-        {% endif %}
-        <p class="tips"></p>
-    </div>
+{% block main %}
     <div class="blog-content">
+        {% if content.length == 0 %}
+            <p>该分类下没有文章</p>
+        {% endif %}
         {% for content in content %}
             <div class="blog-box">
                 <h5 class="blog-title">{{content.title}}</h5>
                 <p class="blog">
-                    {{content.description}}
+                    <a href="/content/blog?contentID={{content._id.toString()}}">{{content.description}}</a>
                 </p>
                 <p class="blog-infos">
                     <i class="blog-time">{{content.addTime.getFullYear()}}年{{content.addTime.getMonth()+1}}月{{content.addTime.getDate()}}日    {{content.addTime.getHours()}}小时{{content.addTime.getMinutes()}}分{{content.addTime.getSeconds()}}秒</i>
@@ -64,7 +17,4 @@
             </div>
         {% endfor %}
     </div>
-    <!--<a href="javascript:;" style="display: block; width: 120px; height: 50px; background-color: red" class="testbtn"> 按钮</a>-->
-    <script src="/public/js/main.js"></script>
-</body>
-</html>
+{% endblock %}

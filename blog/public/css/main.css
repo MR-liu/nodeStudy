@@ -135,7 +135,116 @@ body{
 	color: #2aabd2;
 }
 
+.blogbox{
+	width: 1000px;
+	min-height: 800px;
+	_height:800px;
+	background-color: #fdfdfd;
+}
 
+.blogbox h3{
+	font-size: 28px;
+	height:28px;
+	line-height: 28px;
+	text-align: center;
+	color: #0f0f0f;
+	margin: 15px 0;
+}
+
+.blogbox .blogtime{
+	font-size: 10px;
+	height:10px;
+	line-height: 10px;
+	text-align: center;
+	color: inherit;
+}
+
+.blogbox .blogtime span{
+	color: #2aabd2;
+}
+
+.blogbox .subtitle{
+	width: 960px;
+	padding: 20px;
+	font-size: 14px;
+	text-indent: 28px;
+	/*background-color: #f2dede;*/
+	color: #66afe9;
+	margin: 15px 0;
+}
+
+.blogbox .blogcon{
+	width: 960px;
+	padding: 20px;
+	font-size: 16px;
+	text-indent: 32px;
+	line-height: 20px;
+	color: #000;
+}
+
+.commentsBox{
+	width: 960px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.commentsBox .comment{
+	/*height: 40px;*/
+	padding: 20px 0;
+	font-size: 0;
+}
+.commentsBox .comment .commentsName{
+	width: 15%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	margin: -1px;
+	border: 1px solid red;
+	border-radius: 5px;
+}
+.commentsBox .comment .commentSay{
+	width: 85%;
+	height: 40px;
+	font-size: 16px;
+	text-indent: 40px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+}
+
+.submitSay{
+	width: 1000px;
+	height: 106px;
+	margin: 20px auto;
+}
+
+.submitSay textarea{
+	float: left;
+	width: 870px;
+	height: 100px;
+	outline: none;
+}
+.submitSay button{
+	float: left;
+	width: 106px;
+	height: 106px;
+
+}
+.noLogin{
+	width: 1000px;
+	margin: 20px auto;
+	background-color: #9d9d9d;
+	text-align: center;
+	line-height: 30px;
+	font-size: 10px;
+	color: #fff;
+}
 
 
 

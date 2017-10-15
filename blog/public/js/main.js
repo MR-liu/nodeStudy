@@ -74,6 +74,7 @@ $(function(){
 	let loginoutBtn = $('.login-out');
 
 	loginoutBtn.on('click', function(){
+		console.log(11)
 		$.ajax({
 			url:'/api/user/loginout',
 			type:'POST',
@@ -90,6 +91,39 @@ $(function(){
 		})
 	})
 
+	/*
+	* 提交评论
+	*
+	* */
+	let messageBtn = $('#messageBtn'),
+		bid = $('#messageContent').attr('bid'),
+		msgCon = $('.commentsBox'),
+		username = $('.blog-user-infos-name').text(),
+		valBox = $('#messageContent');
+
+
+    messageBtn.on('click', function () {
+        let contentText = valBox.val();
+		$.ajax({
+			url:'/api/content/blog',
+			type:'POST',
+			data:{
+                contentID:bid,
+                content:contentText
+			},
+            dataType:'json',
+            success: function(res){
+				// console.log(1)
+                if (res&&res.code == 0){
+                    msgCon.append("<div class='comment'><div class='commentsName'>"+ username +"</div><div class='commentSay'>" + contentText + "</div></div>")
+                    valBox.val('');
+                } else{
+                	console.log(res)
+				}
+            }
+
+		})
+    })
 
 	//test================================================
 	let	testbtn = $('.testbtn');

@@ -1,5 +1,6 @@
 let express = require('express');
 let router = express.Router();
+let Content = require('../models/content');
 
 //引用模型类 通过模型类进行数据库操作
 let User = require('../models/User');
@@ -96,7 +97,6 @@ router.post('/user/register', function (req, res ,next) {
             username:userInfo.username
         }))
 
-        console.log(userInfo);
         responseData.username = username;
         responseData.message = '注册成功';
         //转换成json格式并返回
@@ -104,11 +104,6 @@ router.post('/user/register', function (req, res ,next) {
 
         return;
     })
-
-    //注册成功
-    // responseData.message = '注册成功';
-    // console.log(responseData);
-    // res.json(responseData);
 });
 
 
@@ -201,4 +196,29 @@ router.post('/user/loginout', function (req, res, next) {
         message: '用户退出'
     })
 })
+
+/*
+* 评论提交
+* 评论人 时间 内容
+* */
+
+router.post('/content/blog', function (req, res, next) {
+    let contentId = req.body.contentID;
+    let postData = {
+        username: req.userInfo.username,
+        posttime: new Date(),
+        content:req.body.content
+    }
+
+    Content.findOne({
+        _id: contentId
+    }).then(function (content) {
+        content.comments.push(postData);
+        return content.save()
+    }).then(function (newcontent) {
+        responseData.message= ' sucuess '
+        res.json(responseData)
+    })
+
+});
 module.exports = router;

@@ -255,7 +255,6 @@ router.get('/content', function (req,res,next) {
 
         //populate 关联数据库
         Content.find().limit(limit).skip(skip).populate(['category','user']).then(function (content) {
-            console.log(content)
             res.render('admin/content',{
                 userInfo:req.userInfo,
                 content:content,
@@ -326,7 +325,6 @@ router.get('/content/edit',function (req, res, next) {
         Content.findOne({
             _id:id
         }).populate('category').then(function (content) {
-
             res.render('admin/content_edit', {
                 userInfo:req.userInfo,
                 content:content,
