@@ -216,8 +216,10 @@ router.post('/content/blog', function (req, res, next) {
         content.comments.push(postData);
         return content.save()
     }).then(function (newcontent) {
-        responseData.message= ' sucuess '
-        res.json(responseData)
+        let data = newcontent;
+        responseData.message= ' sucuess ';
+        responseData.data = data;
+        res.json(responseData);
     })
 
 });
